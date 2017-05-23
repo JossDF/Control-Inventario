@@ -5,6 +5,9 @@
  */
 package org.inventario.vista;
 
+import org.inventario.bean.Usuario;
+import org.inventario.controlador.ControladorUsuario;
+
 /**
  *
  * @author dafuentes
@@ -79,6 +82,11 @@ public class Registro extends javax.swing.JFrame {
         txt_telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_telefonoActionPerformed(evt);
+            }
+        });
+        txt_telefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_telefonoKeyTyped(evt);
             }
         });
 
@@ -167,9 +175,27 @@ public class Registro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-        Registro registro = new Registro();
-        registro.setVisible(true);
-        dispose();
+        // Obtención de valores
+        String nombre = txt_nombre.getText();
+        String direccion = txt_direccion.getText();
+        int telefono = 0;
+        if (!txt_telefono.getText().equals("")) {
+            telefono = Integer.parseInt(txt_telefono.getText());
+        }
+        String nit = txt_nit.getText();
+        String username = txt_usuario.getText();
+        String contrasenia = txt_contrasenia.getText();
+        
+        if (!nombre.equals("") && !direccion.equals("") && telefono != 0 && !nit.equals("") && !username.equals("") && !contrasenia.equals("")) {
+            // Agregar usuario al sistema
+            ControladorUsuario ctl_usuario = new ControladorUsuario().getInstance();
+            System.out.println(ctl_usuario.getLongitud());
+            Usuario usuario = new Usuario(ctl_usuario.getLongitud(),nombre, direccion, telefono, nit, username, contrasenia,0);
+            ctl_usuario.agregar(usuario);
+            MenuCliente menu = new MenuCliente();
+            menu.setVisible(true);
+            dispose();
+        }        
     }//GEN-LAST:event_btn_guardarActionPerformed
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
@@ -185,6 +211,18 @@ public class Registro extends javax.swing.JFrame {
     private void txt_contraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_contraseniaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_contraseniaActionPerformed
+
+    private void txt_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefonoKeyTyped
+        char caracter = evt.getKeyChar();
+
+        // Verificar si la tecla pulsada no es un digito
+        if(((caracter < '0') ||
+           (caracter > '9')) &&
+           (caracter != '\b' /*corresponde a BACK_SPACE*/))
+        {
+           evt.consume();  // ignorar el evento de teclado
+        }
+    }//GEN-LAST:event_txt_telefonoKeyTyped
 
     /**
      * @param args the command line arguments

@@ -6,6 +6,7 @@
 package org.inventario.inicio;
 import org.inventario.bean.Articulo;
 import org.inventario.bean.ArticuloList;
+import org.inventario.controlador.ControladorUsuario;
 import org.inventario.vista.Login;
 
 /**
@@ -18,6 +19,12 @@ public class Sistema {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        // Metodos para cargar los datos de los archivos
+        ControladorUsuario ctl_usuario = new ControladorUsuario().getInstance();
+        ctl_usuario.cargarDatos();
+        
+        
         Articulo art = new Articulo();
         art.setId(1);
         art.setNombre("sdsdf");

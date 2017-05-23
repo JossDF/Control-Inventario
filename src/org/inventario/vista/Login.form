@@ -30,26 +30,37 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel2" max="32767" attributes="0"/>
-                          <Component id="jLabel1" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btn_registrar" max="32767" attributes="0"/>
-                          <Component id="btn_guardar" max="32767" attributes="0"/>
-                          <Component id="txt_usuario" max="32767" attributes="0"/>
-                          <Component id="txt_contrasenia" min="-2" pref="136" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btn_cerrar" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btn_registrar" pref="136" max="32767" attributes="0"/>
+                          <Component id="btn_guardar" max="32767" attributes="0"/>
+                          <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace pref="86" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jLabel2" max="32767" attributes="0"/>
+                          <Component id="jLabel1" min="-2" pref="66" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txt_usuario" max="32767" attributes="0"/>
+                          <Component id="txt_contrasenia" pref="136" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="lbl_error" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -60,7 +71,7 @@
               <Component id="btn_cerrar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txt_usuario" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -70,11 +81,13 @@
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txt_contrasenia" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="lbl_error" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Component id="btn_guardar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btn_registrar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -97,8 +110,15 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_usuario">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_usuarioKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txt_contrasenia">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_contraseniaActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_contraseniaKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_guardar">
       <Properties>
@@ -138,6 +158,17 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_cerrarActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_error">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="13" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Usuario y/o contrase&#xf1;a incorrecto"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="lbl_error.setVisible(false);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
