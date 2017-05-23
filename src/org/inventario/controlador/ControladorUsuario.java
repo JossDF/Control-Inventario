@@ -21,6 +21,7 @@ public class ControladorUsuario  {
     private static ControladorUsuario instance = null;
     ArrayList<Usuario> listado = new ArrayList<>();
     private BufferedWriter archivo;
+    public static Usuario usuario;
     
     public static ControladorUsuario getInstance() {
         if(instance == null) {
@@ -84,9 +85,19 @@ public class ControladorUsuario  {
 
     }
     
+    public Usuario buscar(int id) {
+        for (Usuario objeto: listado) {
+            if (objeto.getId() == id) {
+                return objeto;
+            }
+        }
+        return null;
+    }
+    
     public Usuario autenticar(String usuario, String contrasenia) {
         for (Usuario objeto: listado)  {
             if (objeto.getUsuario().equals(usuario) && objeto.getContrasenia().equals(contrasenia)) {
+                ControladorUsuario.usuario = objeto;
                 return objeto;
             }
         }

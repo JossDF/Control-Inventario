@@ -135,7 +135,7 @@ public class MenuCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_historialActionPerformed
 
     private void btn_pedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pedidoActionPerformed
-        Pedido pedido = new Pedido();
+        Pedidos pedido = new Pedidos();
         pedido.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_pedidoActionPerformed

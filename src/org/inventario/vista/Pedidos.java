@@ -5,25 +5,34 @@
  */
 package org.inventario.vista;
 
+import java.text.DateFormat;
+import java.util.Date;
 import org.inventario.bean.Articulo;
+import org.inventario.bean.ArticuloComboBox;
 import org.inventario.bean.ArticuloList;
+import org.inventario.bean.Usuario;
+import org.inventario.bean.Pedido;
+import org.inventario.controlador.ControladorPedido;
+import org.inventario.controlador.ControladorUsuario;
 
 /**
  *
  * @author dafuentes
  */
-public class Pedido extends javax.swing.JFrame {
+public class Pedidos extends javax.swing.JFrame {
 
+    private ControladorPedido ctl_pedido = new ControladorPedido().getInstance();
+    private Usuario usuario = ControladorUsuario.usuario;
     /**
-     * Creates new form Pedido
+     * Creates new form Pedidos
      */
     private ArticuloList list_model = new ArticuloList().getInstance();
-    public Pedido() {
-        
+    private ArticuloComboBox cmb_model = new ArticuloComboBox().getInstance();
+
+    public Pedidos() {
         initComponents();
-        agregarComponente();
         this.setLocationRelativeTo(null);
-        
+        agregarComponente();
     }
 
     /**
@@ -53,7 +62,6 @@ public class Pedido extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         txt_cantidad = new javax.swing.JTextField();
         txt_precio = new javax.swing.JTextField();
-        txt_fecha = new javax.swing.JTextField();
         cb_articulo = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
@@ -61,6 +69,7 @@ public class Pedido extends javax.swing.JFrame {
         txt_nit = new javax.swing.JTextField();
         txt_direccion = new javax.swing.JTextField();
         txt_correlativo = new javax.swing.JTextField();
+        txt_fecha = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -115,6 +124,11 @@ public class Pedido extends javax.swing.JFrame {
 
         btn_agregar.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         btn_agregar.setText("Agregar");
+        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         jLabel7.setText("Articulo");
@@ -135,7 +149,6 @@ public class Pedido extends javax.swing.JFrame {
         });
 
         cb_articulo.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        cb_articulo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         jLabel11.setText("Correlativo");
@@ -201,20 +214,24 @@ public class Pedido extends javax.swing.JFrame {
                                             .addComponent(txt_nit, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel10))
-                                .addGap(43, 43, 43)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btn_agregar)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txt_fecha, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txt_precio, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(cb_articulo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txt_cantidad)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(txt_precio, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(cb_articulo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btn_agregar)
+                                        .addGap(33, 33, 33)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -250,36 +267,37 @@ public class Pedido extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_eliminar))
-                        .addContainerGap(46, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(cb_articulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
-                            .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(42, 42, 42)
-                        .addComponent(btn_agregar)
-                        .addGap(114, 114, 114))))
+                            .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel9))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cb_articulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(43, 43, 43)
+                        .addComponent(btn_agregar)))
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_eliminar))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
@@ -327,6 +345,16 @@ public class Pedido extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_direccionActionPerformed
 
+    private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
+        //Date fecha = txt_fecha.getDate();
+        //String fecha_formato = DateFormat.getDateInstance().format(fecha);
+        int selection = cb_articulo.getSelectedIndex();
+        Articulo art = cmb_model.getArticulo(selection);
+        System.out.println(art.getNombre());
+        //Pedido pedido = new Pedido(ctl_pedido.getLongitud(), usuario, fecha_formato);
+        //ctl_pedido.agregar(pedido);
+    }//GEN-LAST:event_btn_agregarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -344,26 +372,34 @@ public class Pedido extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pedido().setVisible(true);
+                new Pedidos().setVisible(true);
             }
         });
     }
     
     public void agregarComponente() {
+        txt_nombre.setText(usuario.getNombre());
+        txt_direccion.setText(usuario.getDireccion());
+        txt_telefono.setText(usuario.getTelefono() + "");
+        txt_nit.setText(usuario.getNit());
+        txt_correlativo.setText(ctl_pedido.getLongitud() + "");
         list_articulo.setModel(list_model);
+        cb_articulo.setModel(cmb_model);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -387,7 +423,7 @@ public class Pedido extends javax.swing.JFrame {
     private javax.swing.JTextField txt_cantidad;
     private javax.swing.JTextField txt_correlativo;
     private javax.swing.JTextField txt_direccion;
-    private javax.swing.JTextField txt_fecha;
+    private com.toedter.calendar.JDateChooser txt_fecha;
     private javax.swing.JTextField txt_nit;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JTextField txt_nombre1;

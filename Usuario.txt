@@ -1,4 +1,0 @@
-1,Jose Fuentes,zona 7,23568521,32033-f,jossfg,test123,0
-2,Daniel,zona 10,22222,dfsfs,dan,5645,0
-3,test,tes,12,21,21,21,0
-4,admin,zona 11,15645646,456464,admin,admin,0

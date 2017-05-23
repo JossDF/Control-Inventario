@@ -15,13 +15,13 @@ public class Pedido {
     
     private int id;
     private Usuario usuario;
-    private Date fechaEntrega;
+    private String fechaEntrega;
     
     public Pedido() {
         
     }   
 
-    public Pedido(int id, Usuario usuario, Date fechaEntrega) {
+    public Pedido(int id, Usuario usuario, String fechaEntrega) {
         this.id = id;
         this.usuario = usuario;
         this.fechaEntrega = fechaEntrega;
@@ -44,11 +44,11 @@ public class Pedido {
         this.usuario = usuario;
     }
 
-    public Date getFechaEntrega() {
+    public String getFechaEntrega() {
         return fechaEntrega;
     }
 
-    public void setFechaEntrega(Date fechaEntrega) {
+    public void setFechaEntrega(String fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
     
