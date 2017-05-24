@@ -12,19 +12,21 @@ package org.inventario.bean;
 public class SubPedido {
     
     private int id; 
+    private Articulo articulo;
     private int cantidad;
     private double precio;
-    private Pedido pedido;
+    private int idPedido;
     
     public SubPedido() {
         
     }
 
-    public SubPedido(int id, int cantidad, double precio, Pedido pedido) {
+    public SubPedido(int id, Articulo articulo, int cantidad, double precio, int idPedido) {
         this.id = id;
+        this.articulo = articulo;
         this.cantidad = cantidad;
         this.precio = precio;
-        this.pedido = pedido;
+        this.idPedido = idPedido;
     }
 
     public int getId() {
@@ -33,6 +35,14 @@ public class SubPedido {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Articulo getArticulo() {
+        return articulo;
+    }
+
+    public void setArticulo(Articulo articulo) {
+        this.articulo = articulo;
     }
 
     public int getCantidad() {
@@ -51,12 +61,12 @@ public class SubPedido {
         this.precio = precio;
     }
 
-    public Pedido getPedido() {
-        return pedido;
+    public int getIdPedido() {
+        return idPedido;
     }
 
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
+    public void setIdPedido(int idPedido) {
+        this.idPedido = idPedido;
     }
     
 }

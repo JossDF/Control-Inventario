@@ -6,7 +6,7 @@
 package org.inventario.controlador;
 
 import java.util.ArrayList;
-import org.inventario.vista.Devolucion;
+import org.inventario.vista.VentanaDevolucion;
 
 /**
  *
@@ -14,7 +14,7 @@ import org.inventario.vista.Devolucion;
  */
 public class ControladorDevolucion {
     private static ControladorDevolucion instance = null;
-    ArrayList<Devolucion> listado = new ArrayList<>();
+    ArrayList<VentanaDevolucion> listado = new ArrayList<>();
     
     public static ControladorDevolucion getInstance() {
         if(instance == null) {

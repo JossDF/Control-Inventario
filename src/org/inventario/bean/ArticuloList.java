@@ -34,11 +34,11 @@ public class ArticuloList extends AbstractListModel{
         Articulo p = lista.get(index);
         return p.getNombre();
     }
-    public void agregarArticulo(Articulo p){
+    public void agregar(Articulo p){
         lista.add(p);
         this.fireIntervalAdded(this, getSize(), getSize()+1);
     }
-    public void eliminarArticulo(int index0){
+    public void eliminar(int index0){
         lista.remove(index0);
         this.fireIntervalRemoved(index0, getSize(), getSize()+1);
     }

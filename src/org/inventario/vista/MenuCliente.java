@@ -123,31 +123,31 @@ public class MenuCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sesionActionPerformed
-        Login login = new Login();
+        VentanaLogin login = new VentanaLogin();
         login.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_sesionActionPerformed
 
     private void btn_historialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_historialActionPerformed
-        Historial historial = new Historial();
+        VentanaHistorial historial = new VentanaHistorial();
         historial.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_historialActionPerformed
 
     private void btn_pedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pedidoActionPerformed
-        Pedidos pedido = new Pedidos();
+        VentanaPedido pedido = new VentanaPedido();
         pedido.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_pedidoActionPerformed
 
     private void btn_devolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_devolucionActionPerformed
-        Devolucion devolucion = new Devolucion();
+        VentanaDevolucion devolucion = new VentanaDevolucion();
         devolucion.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_devolucionActionPerformed
 
     private void btn_reporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reporteActionPerformed
-        Reporte reporte = new Reporte();
+        VentanaReporte reporte = new VentanaReporte();
         reporte.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_reporteActionPerformed
