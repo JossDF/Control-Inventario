@@ -85,4 +85,14 @@ public class ControladorSubPedido {
         }
 
     }
+    
+    public ArrayList<SubPedido> buscar(int id) {
+        ArrayList<SubPedido> temporal = new ArrayList<>();
+        for(SubPedido objeto: listado) {
+            if (objeto.getIdPedido() == id) {
+                temporal.add(objeto);
+            }
+        } 
+        return temporal;
+    }
 }

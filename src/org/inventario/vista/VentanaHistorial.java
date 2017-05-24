@@ -5,11 +5,20 @@
  */
 package org.inventario.vista;
 
+import javax.swing.table.DefaultTableModel;
+import org.inventario.bean.Entrega;
+import org.inventario.bean.SubPedido;
+import org.inventario.controlador.ControladorEntrega;
+import org.inventario.controlador.ControladorSubPedido;
+
 /**
  *
  * @author dafuentes
  */
 public class VentanaHistorial extends javax.swing.JFrame {
+    
+    private ControladorEntrega ctl_entrega = new ControladorEntrega().getInstance();
+    private ControladorSubPedido ctl_subPedido = new ControladorSubPedido().getInstance();
 
     /**
      * Creates new form Historiak
@@ -17,6 +26,7 @@ public class VentanaHistorial extends javax.swing.JFrame {
     public VentanaHistorial() {
         initComponents();
         this.setLocationRelativeTo(null);
+        agregarComponente();
     }
 
     /**
@@ -31,7 +41,7 @@ public class VentanaHistorial extends javax.swing.JFrame {
         btn_sesion3 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl_entrega = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -48,19 +58,16 @@ public class VentanaHistorial extends javax.swing.JFrame {
         jLabel3.setText("Historial");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_entrega.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Correlativo", "Articulo", "Estado", "Fecha de Entrega"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tbl_entrega.setEnabled(false);
+        jScrollPane1.setViewportView(tbl_entrega);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,8 +82,8 @@ public class VentanaHistorial extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)))
                 .addGap(58, 58, 58))
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -86,9 +93,8 @@ public class VentanaHistorial extends javax.swing.JFrame {
                 .addComponent(btn_sesion3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -137,11 +143,23 @@ public class VentanaHistorial extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void agregarComponente() {
+        DefaultTableModel model = (DefaultTableModel) tbl_entrega.getModel();
+        for (Entrega t : ctl_entrega.buscar()) {
+            String productos = "| ";
+            for (SubPedido objeto: ctl_subPedido.buscar(t.getPedido().getId())) {
+                productos += objeto.getArticulo().getNombre() + " | ";
+            }
+            Object rowData[] = {t.getId(), productos, t.getEstado(), t.getPedido().getFechaEntrega() };
+            model.addRow(rowData);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_sesion3;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbl_entrega;
     // End of variables declaration//GEN-END:variables
 }

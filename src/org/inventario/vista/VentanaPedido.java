@@ -5,15 +5,16 @@
  */
 package org.inventario.vista;
 
-import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
 import org.inventario.bean.Articulo;
 import org.inventario.bean.ArticuloComboBox;
+import org.inventario.bean.Entrega;
 import org.inventario.bean.Pedido;
 import org.inventario.bean.SubPedido;
 import org.inventario.bean.Usuario;
 import org.inventario.bean.SubPedidoList;
+import org.inventario.controlador.ControladorEntrega;
 import org.inventario.controlador.ControladorPedido;
 import org.inventario.controlador.ControladorSubPedido;
 import org.inventario.controlador.ControladorUsuario;
@@ -497,6 +498,9 @@ public class VentanaPedido extends javax.swing.JFrame {
                 for(SubPedido objeto: list_model.getListado()) {
                     ctl_subPedido.agregar(objeto);
                 }
+                ControladorEntrega ctl_entrega = new ControladorEntrega().getInstance();
+                Entrega entrega = new Entrega(ctl_entrega.getLongitud(),"INICIADO", pedido);
+                ctl_entrega.agregar(entrega);
                 MenuCliente menu = new MenuCliente();
                 menu.setVisible(true);
                 dispose();
@@ -545,6 +549,8 @@ public class VentanaPedido extends javax.swing.JFrame {
     }
     
     public void agregarComponente() {
+        cb_articulo.setSelectedIndex(-1);
+        cb_articulo.repaint();
         list_model.vaciar();
         txt_nombre.setText(usuario.getNombre());
         txt_direccion.setText(usuario.getDireccion());

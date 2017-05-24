@@ -5,18 +5,32 @@
  */
 package org.inventario.vista;
 
+import org.inventario.bean.ArticuloComboBox;
+import org.inventario.bean.ArticuloComboBoxEnviar;
+import org.inventario.controlador.ControladorDevolucion;
+import org.inventario.controlador.ControladorEntrega;
+import org.inventario.controlador.ControladorPedido;
+import org.inventario.controlador.ControladorSubPedido;
+
 /**
  *
  * @author dafuentes
  */
 public class VentanaDevolucion extends javax.swing.JFrame {
 
+    private ControladorDevolucion ctl_devolucion = new ControladorDevolucion().getInstance();
+    private ControladorEntrega ctl_entrega = new ControladorEntrega().getInstance();
+    private ControladorPedido ctl_pedido = new ControladorPedido().getInstance();
+    private ControladorSubPedido ctl_subPedido = new ControladorSubPedido().getInstance();
+    private ArticuloComboBox cmb_articuloDevolver = new ArticuloComboBox().getInstance();
+    private ArticuloComboBoxEnviar cmb_articuloEnviar = new ArticuloComboBoxEnviar().getInstance();
     /**
      * Creates new form Devolucion
      */
     public VentanaDevolucion() {
         initComponents();
         this.setLocationRelativeTo(null);
+        agregarComponente();
     }
 
     /**
@@ -31,10 +45,10 @@ public class VentanaDevolucion extends javax.swing.JFrame {
         btn_sesion = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        cb_art_devolver = new javax.swing.JComboBox<>();
+        cb_devolver = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         txt_codigo = new javax.swing.JTextField();
-        cb_art_enviar = new javax.swing.JComboBox<>();
+        cb_enviar = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         btn_guardar = new javax.swing.JButton();
 
@@ -56,8 +70,6 @@ public class VentanaDevolucion extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         jLabel1.setText("Codigo");
 
-        cb_art_devolver.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel2.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         jLabel2.setText("Articulo a devolver");
 
@@ -67,13 +79,22 @@ public class VentanaDevolucion extends javax.swing.JFrame {
             }
         });
 
-        cb_art_enviar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_enviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_enviarActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         jLabel4.setText("Articulo a enviar");
 
         btn_guardar.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         btn_guardar.setText("Guardar");
+        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,8 +119,8 @@ public class VentanaDevolucion extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cb_art_devolver, 0, 101, Short.MAX_VALUE)
-                            .addComponent(cb_art_enviar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cb_devolver, 0, 101, Short.MAX_VALUE)
+                            .addComponent(cb_enviar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txt_codigo))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -116,11 +137,11 @@ public class VentanaDevolucion extends javax.swing.JFrame {
                     .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cb_art_devolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_devolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cb_art_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(30, 30, 30)
                 .addComponent(btn_guardar)
@@ -139,6 +160,14 @@ public class VentanaDevolucion extends javax.swing.JFrame {
     private void txt_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_codigoActionPerformed
+
+    private void cb_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_enviarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_enviarActionPerformed
+
+    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+        
+    }//GEN-LAST:event_btn_guardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,12 +206,22 @@ public class VentanaDevolucion extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void agregarComponente() {
+        cb_devolver.setSelectedIndex(-1);
+        cb_devolver.repaint();
+        cb_enviar.setSelectedIndex(-1);
+        cb_enviar.repaint();
+        txt_codigo.setText(ctl_devolucion.getLongitud() + "");
+        cb_devolver.setModel(cmb_articuloDevolver);
+        cb_enviar.setModel(cmb_articuloEnviar);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_sesion;
-    private javax.swing.JComboBox<String> cb_art_devolver;
-    private javax.swing.JComboBox<String> cb_art_enviar;
+    private javax.swing.JComboBox<String> cb_devolver;
+    private javax.swing.JComboBox<String> cb_enviar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

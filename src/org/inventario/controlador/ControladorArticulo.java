@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import org.inventario.bean.Articulo;
 import org.inventario.bean.ArticuloComboBox;
+import org.inventario.bean.ArticuloComboBoxEnviar;
 
 /**
  *
@@ -22,6 +23,7 @@ public class ControladorArticulo {
     private static ControladorArticulo instance = null;
     ArrayList<Articulo> listado = new ArrayList<>();
     private ArticuloComboBox cbm_model = new ArticuloComboBox().getInstance();
+    private ArticuloComboBoxEnviar cbm_modelEnviar = new ArticuloComboBoxEnviar().getInstance();
     private BufferedWriter archivo;
     
     public static ControladorArticulo getInstance() {
@@ -50,6 +52,7 @@ public class ControladorArticulo {
                 ControladorUsuario ctl_usuario = new ControladorUsuario().getInstance();
                 Articulo objeto = new Articulo(Integer.parseInt(arreglo[0]),arreglo[1],arreglo[2],Double.parseDouble(arreglo[3]),Double.parseDouble(arreglo[4]),arreglo[5],Integer.parseInt(arreglo[6]));
                 cbm_model.agregarArticulo(objeto);
+                cbm_modelEnviar.agregarArticulo(objeto);
                 listado.add(objeto);
             }
         } catch (IOException ex) {
@@ -74,6 +77,7 @@ public class ControladorArticulo {
     public void agregar(Articulo objeto) {
         listado.add(objeto);
         cbm_model.agregarArticulo(objeto);
+        cbm_modelEnviar.agregarArticulo(objeto);
         try {
             String registro = objeto.getId() + "," + objeto.getNombre()+ "," + 
                               objeto.getDescripcion() + "," + objeto.getCosto() + "," +

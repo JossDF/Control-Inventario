@@ -8,6 +8,8 @@ import org.inventario.bean.Articulo;
 import org.inventario.bean.ArticuloComboBox;
 import org.inventario.bean.ArticuloList;
 import org.inventario.controlador.ControladorArticulo;
+import org.inventario.controlador.ControladorDevolucion;
+import org.inventario.controlador.ControladorEntrega;
 import org.inventario.controlador.ControladorPedido;
 import org.inventario.controlador.ControladorSubPedido;
 import org.inventario.controlador.ControladorUsuario;
@@ -36,6 +38,12 @@ public class Sistema {
         
         ControladorSubPedido ctl_subPedido = new ControladorSubPedido().getInstance();
         ctl_subPedido.cargarDatos();
+        
+        ControladorEntrega ctl_entrega = new ControladorEntrega().getInstance();
+        ctl_entrega.cargarDatos();
+        
+        ControladorDevolucion ctl_devolucion = new ControladorDevolucion().getInstance();
+        ctl_devolucion.cargarDatos();
         
         VentanaLogin login = new VentanaLogin();
         login.setVisible(true);

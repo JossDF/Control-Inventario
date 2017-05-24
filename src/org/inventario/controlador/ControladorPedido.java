@@ -80,4 +80,13 @@ public class ControladorPedido {
         }
 
     }
+    
+    public Pedido buscar(int id) {
+        for(Pedido objeto : listado) {
+            if (objeto.getId() == id) {
+                return objeto;
+            }
+        }
+        return null;
+    }
 }

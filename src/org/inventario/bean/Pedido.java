@@ -5,8 +5,6 @@
  */
 package org.inventario.bean;
 
-import java.util.Date;
-
 /**
  *
  * @author dafuentes
