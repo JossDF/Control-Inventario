@@ -39,8 +39,9 @@ public class ControladorEntrega {
         }
     }
     // Carga los datos guardados al iniciar la aplicacion
-    public void cargarDatos(boolean check) {
+    public void cargarDatos() {
         listado.clear();
+        lista_pedido.vaciar();
         try {
             String descripcion = "";
             String arreglo[];
@@ -50,9 +51,8 @@ public class ControladorEntrega {
                 ControladorPedido ctl_pedido = new ControladorPedido().getInstance();
                 Entrega objeto = new Entrega(Integer.parseInt(arreglo[0]),arreglo[1],ctl_pedido.buscar(Integer.parseInt(arreglo[2])));
                 listado.add(objeto);
-                if(check) {
-                    lista_pedido.agregar(objeto);
-                } 
+                lista_pedido.agregar(objeto);
+                
             }
         } catch (IOException ex) {
             System.out.println("Error carga de datos PEDIDO");
@@ -75,6 +75,7 @@ public class ControladorEntrega {
     // Agrega un pedido tanto en el archivo como en el listado
     public void agregar(Entrega objeto) {
         listado.add(objeto);
+        lista_pedido.agregar(objeto);
         try {
             String registro = objeto.getId() + "," + objeto.getEstado()+ "," + 
                               objeto.getPedido().getId();

@@ -42,7 +42,12 @@ public class EntregaList extends AbstractListModel{
         this.fireIntervalRemoved(index0, getSize(), getSize()+1);
     }
     public Entrega getEntrega(int index){
-        return lista.get(index);
+        if (lista.size() != 0) {
+            return lista.get(index);
+        } else { 
+            return null;
+        }
+        
     }
     public void vaciar() {
         lista.clear();

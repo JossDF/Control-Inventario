@@ -64,7 +64,7 @@ public class ControladorArchivo {
                 archivo.flush();
             }
             archivo.close();
-            ctl_entrega.cargarDatos(false);
+            ctl_entrega.cargarDatos();
         } catch (IOException ex) {
             System.out.println("Error editar registro archivo" + ex);
         }

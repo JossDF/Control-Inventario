@@ -40,7 +40,7 @@ public class Sistema {
         ctl_subPedido.cargarDatos();
         
         ControladorEntrega ctl_entrega = new ControladorEntrega().getInstance();
-        ctl_entrega.cargarDatos(true);
+        ctl_entrega.cargarDatos();
         
         ControladorDevolucion ctl_devolucion = new ControladorDevolucion().getInstance();
         ctl_devolucion.cargarDatos();

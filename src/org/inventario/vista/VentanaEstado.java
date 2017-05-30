@@ -163,15 +163,18 @@ public class VentanaEstado extends javax.swing.JFrame {
         int selection = list_pedido.getSelectedIndex();
         if (selection!=-1) {
             Entrega p = lista_entrega.getEntrega(selection);
-            txt_correlativo.setText(p.getId()+ "");
-            switch(p.getEstado()) {
-                case "INICIADO":
-                    cmb_estado.setSelectedIndex(0);
-                    break;
-                case "EN PROCESO":
-                    cmb_estado.setSelectedIndex(1);
-                    break;
+            if (p != null) {
+                txt_correlativo.setText(p.getId()+ "");
+                switch(p.getEstado()) {
+                    case "INICIADO":
+                        cmb_estado.setSelectedIndex(0);
+                        break;
+                    case "EN PROCESO":
+                        cmb_estado.setSelectedIndex(1);
+                        break;
+                }
             }
+            
             cmb_estado.repaint();
         }
         
@@ -193,6 +196,7 @@ public class VentanaEstado extends javax.swing.JFrame {
                     break;
             }
             System.out.println(estado);
+            
             ctl_archivo.editarRegistro("Entrega.txt", Integer.parseInt(txt_correlativo.getText()), estado);
             MenuAdmin menu = new MenuAdmin();
             menu.setVisible(true);
