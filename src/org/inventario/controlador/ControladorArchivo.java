@@ -1,0 +1,50 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package org.inventario.controlador;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import org.inventario.bean.SubPedido;
+
+/**
+ *
+ * @author dafuentes
+ */
+public class ControladorArchivo {
+    private static ControladorArchivo instance = null;
+    private ControladorSubPedido ctl_subPedido = new ControladorSubPedido().getInstance();
+    
+    public static ControladorArchivo getInstance() {
+        if(instance == null) {
+            instance = new ControladorArchivo();
+        }
+        return instance;
+    }
+    
+    public void eliminarRegistro(String nombre_archivo, int dato) {
+        try {
+            BufferedWriter archivo = new BufferedWriter(new FileWriter(nombre_archivo,false));
+            for (SubPedido objeto : ctl_subPedido.getListado()) {
+                if (objeto.getId() != dato) {
+                    String registro = objeto.getId() + "," + objeto.getArticulo().getId()+ "," + 
+                                  objeto.getCantidad() + "," + objeto.getPrecio()+ "," +
+                                  objeto.getIdPedido();
+                    archivo.write(registro);
+                    archivo.newLine();
+                    archivo.flush();
+                }
+            }
+            archivo.close();
+            ctl_subPedido.cargarDatos();
+        } catch (IOException ex) {
+            System.out.println("Error eliminar registro archivo" + ex);
+        }
+    }  
+}

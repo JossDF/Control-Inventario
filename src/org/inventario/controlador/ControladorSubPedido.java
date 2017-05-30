@@ -40,6 +40,7 @@ public class ControladorSubPedido {
     }
      // Carga los datos guardados al iniciar la aplicacion
     public void cargarDatos() {
+        listado.clear();
         try {
             String descripcion = "";
             String arreglo[];
@@ -62,13 +63,38 @@ public class ControladorSubPedido {
         return listado;
     }
      
-    public int getLongitud() {
-        if (!listado.isEmpty()) {
-           SubPedido objeto =  listado.get(listado.size() - 1);
-           return objeto.getId() + 1;
+    public int getLongitud(boolean check) {
+        if (!check) {
+            try {
+                BufferedReader lectura = new BufferedReader(new FileReader("SubPedido.txt"));
+                String descripcion = "";
+                String data[];
+                int cantidad = 1;
+                while((descripcion = lectura.readLine()) != null) {
+                    data = descripcion.split(",");
+                    cantidad = Integer.parseInt(data[0]);
+                }
+                return cantidad + 1;
+            } catch (IOException ex) {
+                System.out.println("Error carga de datos PEDIDO");
+            }
         } else {
-            return 1;
-        }        
+            try {
+                BufferedReader lectura = new BufferedReader(new FileReader("SubPedido.txt"));
+                String descripcion = "";
+                String data[];
+                int cantidad = 1;
+                while((descripcion = lectura.readLine()) != null) {
+                    data = descripcion.split(",");
+                    cantidad = Integer.parseInt(data[0]);
+                }
+                return cantidad + subPedido_list.getSize();
+            } catch (IOException ex) {
+                System.out.println("Error carga de datos PEDIDO");
+            }
+        }
+        return 1;
+        
     }
     // Agrega un subPedido tanto en el archivo como en el listado
     public void agregar(SubPedido objeto) {

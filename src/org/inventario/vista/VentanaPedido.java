@@ -425,7 +425,7 @@ public class VentanaPedido extends javax.swing.JFrame {
         }
         int idPedido = ctl_pedido.getLongitud();
         if (cantidad > 0 && precio > 0.0) {
-            SubPedido subPedido = new SubPedido(ctl_subPedido.getLongitud(), articulo, cantidad, precio, idPedido);
+            SubPedido subPedido = new SubPedido(ctl_subPedido.getLongitud(true), articulo, cantidad, precio, idPedido);
             list_model.agregar(subPedido); 
             cb_articulo.setSelectedIndex(-1);
             cb_articulo.repaint();

@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/dafuentes/Documents/NetBeansProjects/Control_Inventario/src/org/inventario/controlador/ControladorArchivo.java</file>
+            <file>file:/C:/Users/dafuentes/Documents/NetBeansProjects/Control_Inventario/src/org/inventario/controlador/ControladorEntrega.java</file>
+            <file>file:/C:/Users/dafuentes/Documents/NetBeansProjects/Control_Inventario/src/org/inventario/controlador/ControladorSubPedido.java</file>
+            <file>file:/C:/Users/dafuentes/Documents/NetBeansProjects/Control_Inventario/src/org/inventario/vista/VentanaDevolucion.java</file>
+            <file>file:/C:/Users/dafuentes/Documents/NetBeansProjects/Control_Inventario/src/org/inventario/vista/VentanaPedido.java</file>
+            <file>file:/C:/Users/dafuentes/Documents/NetBeansProjects/Control_Inventario/src/org/inventario/controlador/ControladorDevolucion.java</file>
+        </group>
     </open-files>
 </project-private>

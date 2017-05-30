@@ -25,6 +25,10 @@ public class ArticuloComboBox extends AbstractListModel implements ComboBoxModel
         }
         return instance;
     }
+    
+    public void limpiar() {
+        lista.clear();
+    }
 
     @Override
     public int getSize() {
