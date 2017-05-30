@@ -80,7 +80,7 @@ public class VentanaDevolucion extends javax.swing.JFrame {
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel1.setText("Codigo");
+        jLabel1.setText("Codigo Pedido");
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         jLabel2.setText("Articulo a devolver");
