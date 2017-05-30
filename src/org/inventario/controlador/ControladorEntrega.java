@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.inventario.bean.Entrega;
+import org.inventario.bean.EntregaList;
 
 /**
  *
@@ -21,6 +22,7 @@ public class ControladorEntrega {
     private static ControladorEntrega instance = null;
     ArrayList<Entrega> listado = new ArrayList<>();
     private BufferedWriter archivo;
+    private EntregaList lista_pedido = new EntregaList().getInstance();
     
     public static ControladorEntrega getInstance() {
         if(instance == null) {
@@ -37,7 +39,8 @@ public class ControladorEntrega {
         }
     }
     // Carga los datos guardados al iniciar la aplicacion
-    public void cargarDatos() {
+    public void cargarDatos(boolean check) {
+        listado.clear();
         try {
             String descripcion = "";
             String arreglo[];
@@ -47,6 +50,9 @@ public class ControladorEntrega {
                 ControladorPedido ctl_pedido = new ControladorPedido().getInstance();
                 Entrega objeto = new Entrega(Integer.parseInt(arreglo[0]),arreglo[1],ctl_pedido.buscar(Integer.parseInt(arreglo[2])));
                 listado.add(objeto);
+                if(check) {
+                    lista_pedido.agregar(objeto);
+                } 
             }
         } catch (IOException ex) {
             System.out.println("Error carga de datos PEDIDO");
@@ -99,4 +105,5 @@ public class ControladorEntrega {
         }
         return null;
     }
+    
 }

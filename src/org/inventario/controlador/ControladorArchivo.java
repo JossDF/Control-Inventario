@@ -5,12 +5,10 @@
  */
 package org.inventario.controlador;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import org.inventario.bean.Entrega;
 import org.inventario.bean.SubPedido;
 
 /**
@@ -20,6 +18,7 @@ import org.inventario.bean.SubPedido;
 public class ControladorArchivo {
     private static ControladorArchivo instance = null;
     private ControladorSubPedido ctl_subPedido = new ControladorSubPedido().getInstance();
+    private ControladorEntrega ctl_entrega = new ControladorEntrega().getInstance();
     
     public static ControladorArchivo getInstance() {
         if(instance == null) {
@@ -45,6 +44,29 @@ public class ControladorArchivo {
             ctl_subPedido.cargarDatos();
         } catch (IOException ex) {
             System.out.println("Error eliminar registro archivo" + ex);
+        }
+    }  
+    
+    public void editarRegistro(String nombre_archivo, int dato, String estado) {
+        try {
+            BufferedWriter archivo = new BufferedWriter(new FileWriter(nombre_archivo,false));
+            String registro = "";
+            for (Entrega objeto : ctl_entrega.getListado()) {
+                if (objeto.getId() != dato) {
+                    registro = objeto.getId() + "," + objeto.getEstado()+ "," + 
+                              objeto.getPedido().getId(); 
+                } else {
+                    registro = objeto.getId() + "," + estado + "," + 
+                              objeto.getPedido().getId(); 
+                }
+                archivo.write(registro);
+                archivo.newLine();
+                archivo.flush();
+            }
+            archivo.close();
+            ctl_entrega.cargarDatos(false);
+        } catch (IOException ex) {
+            System.out.println("Error editar registro archivo" + ex);
         }
     }  
 }

@@ -31,6 +31,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         btn_sesion = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btn_pedido = new javax.swing.JButton();
+        btn_estado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -54,6 +55,13 @@ public class MenuAdmin extends javax.swing.JFrame {
             }
         });
 
+        btn_estado.setText("Estado Pedido");
+        btn_estado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_estadoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,6 +77,8 @@ public class MenuAdmin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(btn_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -79,7 +89,9 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(btn_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(157, Short.MAX_VALUE))
         );
 
@@ -97,6 +109,12 @@ public class MenuAdmin extends javax.swing.JFrame {
         ventanaArticulo.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_pedidoActionPerformed
+
+    private void btn_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_estadoActionPerformed
+        VentanaEstado ventanaEstado = new VentanaEstado();
+        ventanaEstado.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btn_estadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,6 +152,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_estado;
     private javax.swing.JButton btn_pedido;
     private javax.swing.JButton btn_sesion;
     private javax.swing.JLabel jLabel3;

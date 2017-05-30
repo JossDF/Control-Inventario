@@ -5,6 +5,8 @@
  */
 package org.inventario.bean;
 
+import org.inventario.controlador.ControladorSubPedido;
+
 /**
  *
  * @author dafuentes
@@ -48,6 +50,17 @@ public class Pedido {
 
     public void setFechaEntrega(String fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
+    }
+    
+    public int getSubPedidos() { 
+        int contador = 0;
+        ControladorSubPedido ctl_subPedido = new ControladorSubPedido().getInstance();
+        for (SubPedido objeto : ctl_subPedido.getListado()) {
+            if (objeto.getIdPedido() == this.id) {
+                contador++;
+            }
+        }
+        return contador;
     }
     
     

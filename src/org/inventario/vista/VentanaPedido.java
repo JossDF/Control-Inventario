@@ -201,24 +201,35 @@ public class VentanaPedido extends javax.swing.JFrame {
                 txt_nombreActionPerformed(evt);
             }
         });
+        txt_nombre.setEditable(false);
 
         txt_telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_telefonoActionPerformed(evt);
             }
         });
+        txt_telefono.setEditable(false);
 
         txt_nit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_nitActionPerformed(evt);
             }
         });
+        txt_nit.setEditable(false);
 
         txt_direccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_direccionActionPerformed(evt);
             }
         });
+        txt_direccion.setEditable(false);
+
+        txt_correlativo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_correlativoActionPerformed(evt);
+            }
+        });
+        txt_correlativo.setEditable(false);
 
         btn_finalizar.setText("Finalizar Pedido");
         btn_finalizar.addActionListener(new java.awt.event.ActionListener() {
@@ -509,6 +520,10 @@ public class VentanaPedido extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btn_finalizarActionPerformed
+
+    private void txt_correlativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_correlativoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_correlativoActionPerformed
 
     /**
      * @param args the command line arguments
