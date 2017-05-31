@@ -30,8 +30,9 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         btn_sesion = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        btn_articulo = new javax.swing.JButton();
+        btn_control = new javax.swing.JButton();
         btn_pedido = new javax.swing.JButton();
-        btn_estado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -48,17 +49,24 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel3.setText("Menu Admin");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        btn_pedido.setText("Nuevo Articulo");
-        btn_pedido.addActionListener(new java.awt.event.ActionListener() {
+        btn_articulo.setText("Nuevo Articulo");
+        btn_articulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_pedidoActionPerformed(evt);
+                btn_articuloActionPerformed(evt);
             }
         });
 
-        btn_estado.setText("Estado Pedido");
-        btn_estado.addActionListener(new java.awt.event.ActionListener() {
+        btn_control.setText("Control de Entregas");
+        btn_control.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_estadoActionPerformed(evt);
+                btn_controlActionPerformed(evt);
+            }
+        });
+
+        btn_pedido.setText("Estado Pedido");
+        btn_pedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_pedidoActionPerformed(evt);
             }
         });
 
@@ -75,10 +83,15 @@ public class MenuAdmin extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)))
                 .addGap(58, 58, 58))
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(btn_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(btn_articulo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btn_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(btn_control, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -90,9 +103,11 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(157, Short.MAX_VALUE))
+                    .addComponent(btn_articulo, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(btn_control, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
 
         pack();
@@ -104,17 +119,23 @@ public class MenuAdmin extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btn_sesionActionPerformed
 
-    private void btn_pedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pedidoActionPerformed
+    private void btn_articuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_articuloActionPerformed
         VentanaArticulo ventanaArticulo = new VentanaArticulo();
         ventanaArticulo.setVisible(true);
         dispose();
-    }//GEN-LAST:event_btn_pedidoActionPerformed
+    }//GEN-LAST:event_btn_articuloActionPerformed
 
-    private void btn_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_estadoActionPerformed
+    private void btn_controlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_controlActionPerformed
+        VentanaControl ventanaControl = new VentanaControl();
+        ventanaControl.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btn_controlActionPerformed
+
+    private void btn_pedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pedidoActionPerformed
         VentanaEstado ventanaEstado = new VentanaEstado();
         ventanaEstado.setVisible(true);
         dispose();
-    }//GEN-LAST:event_btn_estadoActionPerformed
+    }//GEN-LAST:event_btn_pedidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,7 +173,8 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_estado;
+    private javax.swing.JButton btn_articulo;
+    private javax.swing.JButton btn_control;
     private javax.swing.JButton btn_pedido;
     private javax.swing.JButton btn_sesion;
     private javax.swing.JLabel jLabel3;

@@ -301,7 +301,7 @@ public class VentanaDevolucion extends javax.swing.JFrame {
     }
     
     public void agregarComponente() {
-        txt_codigo.setText(ctl_devolucion.getLongitud() + "");
+        txt_codigo.setText("");
         cb_enviar.setModel(cmb_articuloEnviar);
         cb_enviar.setSelectedIndex(-1);
         cb_enviar.repaint();

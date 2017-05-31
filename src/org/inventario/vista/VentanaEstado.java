@@ -160,7 +160,10 @@ public class VentanaEstado extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_correlativoActionPerformed
 
     private void list_pedidoValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_list_pedidoValueChanged
+        System.out.println("cambio");
+        
         int selection = list_pedido.getSelectedIndex();
+        System.out.println(selection);
         if (selection!=-1) {
             Entrega p = lista_entrega.getEntrega(selection);
             if (p != null) {
@@ -195,12 +198,11 @@ public class VentanaEstado extends javax.swing.JFrame {
                     estado = "ENTREGADO";
                     break;
             }
-            System.out.println(estado);
-            
             ctl_archivo.editarRegistro("Entrega.txt", Integer.parseInt(txt_correlativo.getText()), estado);
-            MenuAdmin menu = new MenuAdmin();
-            menu.setVisible(true);
-            dispose();
+            list_pedido.setModel(lista_entrega);
+            txt_correlativo.setText("");
+            cmb_estado.setSelectedIndex(0);
+            cmb_estado.repaint();
             
         }
     }//GEN-LAST:event_btn_guardarActionPerformed
@@ -245,7 +247,7 @@ public class VentanaEstado extends javax.swing.JFrame {
        
         cmb_estado.addItem("INICIADO");
         cmb_estado.addItem("PROCESO");
-        cmb_estado.addItem("FINALIZADO");
+        cmb_estado.addItem("ENTREGADO");
         list_pedido.setModel(lista_entrega);
     }
 
