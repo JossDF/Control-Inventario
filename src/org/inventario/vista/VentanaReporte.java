@@ -30,10 +30,10 @@ public class VentanaReporte extends javax.swing.JFrame {
 
         btn_sesion = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btn_reporteDia = new javax.swing.JButton();
+        btn_reporteEstado = new javax.swing.JButton();
+        btn_reporteDevolucion = new javax.swing.JButton();
+        btn_reporteArticulo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -50,18 +50,33 @@ public class VentanaReporte extends javax.swing.JFrame {
         jLabel3.setText("Reporte");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButton1.setText("Reporte por Dia");
-
-        jButton2.setText("Reporte de Status");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_reporteDia.setText("Reporte por Dia");
+        btn_reporteDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_reporteDiaActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Reporte de Devoluciones");
+        btn_reporteEstado.setText("Reporte de Estado");
+        btn_reporteEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_reporteEstadoActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Reporte de articulos");
+        btn_reporteDevolucion.setText("Reporte de Devoluciones");
+        btn_reporteDevolucion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_reporteDevolucionActionPerformed(evt);
+            }
+        });
+
+        btn_reporteArticulo.setText("Reporte de articulos");
+        btn_reporteArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_reporteArticuloActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,13 +93,13 @@ public class VentanaReporte extends javax.swing.JFrame {
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_reporteDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btn_reporteArticulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_reporteDia, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btn_reporteEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
@@ -96,12 +111,12 @@ public class VentanaReporte extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_reporteDia, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_reporteEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_reporteDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_reporteArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
@@ -109,14 +124,34 @@ public class VentanaReporte extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sesionActionPerformed
-        MenuCliente menuCliente = new MenuCliente();
-        menuCliente.setVisible(true);
+        MenuAdmin menu = new MenuAdmin();
+        menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_sesionActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btn_reporteEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reporteEstadoActionPerformed
+       ReporteEstado reporte = new ReporteEstado();
+       reporte.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_btn_reporteEstadoActionPerformed
+
+    private void btn_reporteDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reporteDiaActionPerformed
+       ReporteDia reporte = new ReporteDia();
+       reporte.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_btn_reporteDiaActionPerformed
+
+    private void btn_reporteDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reporteDevolucionActionPerformed
+       ReporteDevolucion reporte = new ReporteDevolucion();
+       reporte.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_btn_reporteDevolucionActionPerformed
+
+    private void btn_reporteArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reporteArticuloActionPerformed
+       ReporteArticulo reporte = new ReporteArticulo();
+       reporte.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_btn_reporteArticuloActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,11 +190,11 @@ public class VentanaReporte extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_reporteArticulo;
+    private javax.swing.JButton btn_reporteDevolucion;
+    private javax.swing.JButton btn_reporteDia;
+    private javax.swing.JButton btn_reporteEstado;
     private javax.swing.JButton btn_sesion;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

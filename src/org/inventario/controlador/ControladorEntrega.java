@@ -107,4 +107,17 @@ public class ControladorEntrega {
         return null;
     }
     
+    public ArrayList<Entrega> consultaReporteEstado(String estado) {
+        if (estado.equals("TODOS")) {
+            return listado;
+        }
+        ArrayList<Entrega> temporal = new ArrayList<>();
+        for(Entrega objeto : listado) {
+            if (objeto.getEstado().equals(estado)) {
+                temporal.add(objeto);
+            }
+        }
+        return temporal; 
+    }
+    
 }

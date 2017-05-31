@@ -184,27 +184,15 @@ public class VentanaEstado extends javax.swing.JFrame {
     }//GEN-LAST:event_list_pedidoValueChanged
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-        int selection = cmb_estado.getSelectedIndex();
-        if (selection != -1) {
-            String estado = "";
-            switch (selection) {
-                case 0:
-                    estado = "INICIADO";
-                    break;
-                case 1:
-                    estado = "EN PROCESO";
-                    break;
-                case 2:
-                    estado = "ENTREGADO";
-                    break;
-            }
+        String estado = cmb_estado.getSelectedItem().toString();
+        if (!txt_correlativo.getText().equals("")) {
             ctl_archivo.editarRegistro("Entrega.txt", Integer.parseInt(txt_correlativo.getText()), estado);
             list_pedido.setModel(lista_entrega);
             txt_correlativo.setText("");
             cmb_estado.setSelectedIndex(0);
-            cmb_estado.repaint();
-            
+            cmb_estado.repaint();  
         }
+        
     }//GEN-LAST:event_btn_guardarActionPerformed
 
     /**

@@ -37,16 +37,15 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btn_pedido" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-                  <Component id="btn_historial" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-              </Group>
+              <Component id="btn_pedido" min="-2" pref="157" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btn_devolucion" min="-2" pref="157" max="-2" attributes="0"/>
-                  <Component id="btn_reporte" min="-2" pref="157" max="-2" attributes="0"/>
-              </Group>
+              <Component id="btn_devolucion" min="-2" pref="157" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+              <Component id="btn_historial" min="-2" pref="157" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,12 +61,9 @@
                   <Component id="btn_pedido" alignment="3" min="-2" pref="66" max="-2" attributes="0"/>
                   <Component id="btn_devolucion" alignment="3" min="-2" pref="66" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btn_historial" alignment="3" min="-2" pref="66" max="-2" attributes="0"/>
-                  <Component id="btn_reporte" alignment="3" min="-2" pref="66" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="59" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="btn_historial" min="-2" pref="66" max="-2" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -111,18 +107,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_historial">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Historial"/>
+        <Property name="text" type="java.lang.String" value="Pedidos"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_historialActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btn_reporte">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Reportes"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_reporteActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

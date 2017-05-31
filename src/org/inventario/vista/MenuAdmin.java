@@ -31,8 +31,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         btn_sesion = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btn_articulo = new javax.swing.JButton();
-        btn_control = new javax.swing.JButton();
         btn_pedido = new javax.swing.JButton();
+        btn_reporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -56,17 +56,17 @@ public class MenuAdmin extends javax.swing.JFrame {
             }
         });
 
-        btn_control.setText("Control de Entregas");
-        btn_control.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_controlActionPerformed(evt);
-            }
-        });
-
         btn_pedido.setText("Estado Pedido");
         btn_pedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_pedidoActionPerformed(evt);
+            }
+        });
+
+        btn_reporte.setText("Reportes");
+        btn_reporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_reporteActionPerformed(evt);
             }
         });
 
@@ -80,7 +80,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                     .addComponent(btn_sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(180, 180, 180)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(58, 58, 58))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,9 +90,9 @@ public class MenuAdmin extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(btn_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(btn_control, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(119, 119, 119)
+                        .addComponent(btn_reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,9 +105,9 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_articulo, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(btn_control, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                .addGap(33, 33, 33)
+                .addComponent(btn_reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
@@ -125,17 +125,17 @@ public class MenuAdmin extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btn_articuloActionPerformed
 
-    private void btn_controlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_controlActionPerformed
-        VentanaControl ventanaControl = new VentanaControl();
-        ventanaControl.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btn_controlActionPerformed
-
     private void btn_pedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pedidoActionPerformed
         VentanaEstado ventanaEstado = new VentanaEstado();
         ventanaEstado.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_pedidoActionPerformed
+
+    private void btn_reporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reporteActionPerformed
+        VentanaReporte reporte = new VentanaReporte();
+        reporte.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btn_reporteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,8 +174,8 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_articulo;
-    private javax.swing.JButton btn_control;
     private javax.swing.JButton btn_pedido;
+    private javax.swing.JButton btn_reporte;
     private javax.swing.JButton btn_sesion;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables

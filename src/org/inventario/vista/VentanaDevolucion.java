@@ -10,6 +10,7 @@ import java.util.Date;
 import org.inventario.bean.Articulo;
 import org.inventario.bean.ArticuloComboBox;
 import org.inventario.bean.ArticuloComboBoxEnviar;
+import org.inventario.bean.Devolucion;
 import org.inventario.bean.Entrega;
 import org.inventario.bean.Pedido;
 import org.inventario.bean.SubPedido;
@@ -227,7 +228,6 @@ public class VentanaDevolucion extends javax.swing.JFrame {
                     }
                 }
             }
-            
             SubPedido subPedido = new SubPedido(ctl_subPedido.getLongitud(false), articulo, 1, articulo.getPrecio(), ctl_pedido.getLongitud());
             ctl_subPedido.agregar(subPedido);
             Pedido pedido = new Pedido(ctl_pedido.getLongitud(),ControladorUsuario.usuario,fecha);
@@ -235,6 +235,8 @@ public class VentanaDevolucion extends javax.swing.JFrame {
             Entrega entrega = new Entrega(ctl_entrega.getLongitud(), "INICIADO",pedido);
             ctl_entrega.agregar(entrega);
             ctl_archivo.eliminarRegistro("SubPedido.txt", idEliminar);
+            Devolucion devolucion = new Devolucion(ctl_devolucion.getLongitud(), art_devolver, articulo, entrega);
+            ctl_devolucion.agregar(devolucion);
             MenuCliente menu = new MenuCliente();
             menu.setVisible(true);
             dispose();

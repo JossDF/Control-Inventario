@@ -84,7 +84,6 @@ public class ControladorPedido {
 
     }
     
-    
     public Pedido buscar(int id) {
         for(Pedido objeto : listado) {
             if (objeto.getId() == id) {
@@ -92,5 +91,15 @@ public class ControladorPedido {
             }
         }
         return null;
+    }
+    
+    public ArrayList<Pedido> consultaReporteDia(String fecha) {
+        ArrayList<Pedido> temporal = new ArrayList<>();
+        for (Pedido objeto: listado) {
+            if (objeto.getFechaEntrega().equals(fecha)) {
+                temporal.add(objeto);
+            }
+        }
+        return temporal;
     }
 }
