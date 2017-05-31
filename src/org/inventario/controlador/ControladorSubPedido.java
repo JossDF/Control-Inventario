@@ -88,7 +88,7 @@ public class ControladorSubPedido {
                     data = descripcion.split(",");
                     cantidad = Integer.parseInt(data[0]);
                 }
-                return cantidad + subPedido_list.getSize();
+                return cantidad + subPedido_list.getSize() + 1;
             } catch (IOException ex) {
                 System.out.println("Error carga de datos PEDIDO");
             }
@@ -119,6 +119,16 @@ public class ControladorSubPedido {
                 temporal.add(objeto);
             }
         } 
+        return temporal;
+    }
+    
+    public ArrayList<SubPedido> consultaPedido(int id) {
+        ArrayList<SubPedido> temporal = new ArrayList<>();
+        for (SubPedido objeto: listado) {
+            if (objeto.getIdPedido() == id) {
+                 temporal.add(objeto);
+            }
+        }
         return temporal;
     }
 }

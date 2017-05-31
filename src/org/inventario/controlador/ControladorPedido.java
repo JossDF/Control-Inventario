@@ -12,7 +12,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.inventario.bean.Pedido;
-import org.inventario.bean.EntregaList;
 
 /**
  *
@@ -95,7 +94,7 @@ public class ControladorPedido {
     
     public ArrayList<Pedido> consultaReporteDia(String fecha) {
         ArrayList<Pedido> temporal = new ArrayList<>();
-        for (Pedido objeto: listado) {
+        for (Pedido objeto : listado) {
             if (objeto.getFechaEntrega().equals(fecha)) {
                 temporal.add(objeto);
             }

@@ -14,6 +14,7 @@ import org.inventario.bean.Pedido;
 import org.inventario.bean.SubPedido;
 import org.inventario.bean.Usuario;
 import org.inventario.bean.SubPedidoList;
+import org.inventario.controlador.ControladorArticulo;
 import org.inventario.controlador.ControladorEntrega;
 import org.inventario.controlador.ControladorPedido;
 import org.inventario.controlador.ControladorSubPedido;
@@ -27,6 +28,7 @@ public class VentanaPedido extends javax.swing.JFrame {
 
     private ControladorPedido ctl_pedido = new ControladorPedido().getInstance();
     private ControladorSubPedido ctl_subPedido = new ControladorSubPedido().getInstance();
+    private ControladorArticulo ctl_articulo = new ControladorArticulo().getInstance();
     private Usuario usuario = ControladorUsuario.usuario;
     private SubPedidoList list_model = new SubPedidoList().getInstance();
     private ArticuloComboBox cmb_model = new ArticuloComboBox().getInstance();
@@ -564,8 +566,7 @@ public class VentanaPedido extends javax.swing.JFrame {
     }
     
     public void agregarComponente() {
-        cb_articulo.setSelectedIndex(-1);
-        cb_articulo.repaint();
+        
         list_model.vaciar();
         txt_nombre.setText(usuario.getNombre());
         txt_direccion.setText(usuario.getDireccion());
@@ -573,7 +574,13 @@ public class VentanaPedido extends javax.swing.JFrame {
         txt_nit.setText(usuario.getNit());
         txt_correlativo.setText(ctl_pedido.getLongitud() + "");
         list_articulo.setModel(list_model);
+        cmb_model.limpiar();
+        for (Articulo objeto : ctl_articulo.getListado()) {
+            cmb_model.agregarArticulo(objeto);
+        }
         cb_articulo.setModel(cmb_model);
+        cb_articulo.setSelectedIndex(-1);
+        cb_articulo.repaint();
         
     }
 

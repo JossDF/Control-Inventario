@@ -220,7 +220,7 @@ public class VentanaDevolucion extends javax.swing.JFrame {
             if (!txt_codigo.getText().equals("")) {
                 Pedido objeto = ctl_pedido.buscar(Integer.parseInt(txt_codigo.getText()));
                 if (objeto != null) {
-                    for (SubPedido subPedido : ctl_subPedido.getListado()) {
+                    for (SubPedido subPedido : ctl_subPedido.consultaPedido(objeto.getId())) {
                         if (subPedido.getArticulo().getId() == art_devolver.getId()) {
                             idEliminar = subPedido.getId();
                             break;

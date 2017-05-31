@@ -160,10 +160,7 @@ public class VentanaEstado extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_correlativoActionPerformed
 
     private void list_pedidoValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_list_pedidoValueChanged
-        System.out.println("cambio");
-        
         int selection = list_pedido.getSelectedIndex();
-        System.out.println(selection);
         if (selection!=-1) {
             Entrega p = lista_entrega.getEntrega(selection);
             if (p != null) {
@@ -234,7 +231,7 @@ public class VentanaEstado extends javax.swing.JFrame {
     public void agregarComponente() {
        
         cmb_estado.addItem("INICIADO");
-        cmb_estado.addItem("PROCESO");
+        cmb_estado.addItem("EN PROCESO");
         cmb_estado.addItem("ENTREGADO");
         list_pedido.setModel(lista_entrega);
     }
