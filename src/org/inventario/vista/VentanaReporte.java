@@ -34,91 +34,111 @@ public class VentanaReporte extends javax.swing.JFrame {
         btn_reporteEstado = new javax.swing.JButton();
         btn_reporteDevolucion = new javax.swing.JButton();
         btn_reporteArticulo = new javax.swing.JButton();
+        dia = new javax.swing.JLabel();
+        estado = new javax.swing.JLabel();
+        devoluciones = new javax.swing.JLabel();
+        articulos = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(500, 370));
         setUndecorated(true);
+        setResizable(false);
+        setSize(new java.awt.Dimension(500, 370));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_sesion.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        btn_sesion.setText("<-");
+        btn_sesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnRegresar.png"))); // NOI18N
+        btn_sesion.setBorderPainted(false);
+        btn_sesion.setContentAreaFilled(false);
+        btn_sesion.setFocusPainted(false);
+        btn_sesion.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnRegresarPressed.png"))); // NOI18N
+        btn_sesion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnRegresarPressed.png"))); // NOI18N
         btn_sesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sesionActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 37, -1));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel3.setText("Reporte");
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("REPORTE");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 11, 155, -1));
 
-        btn_reporteDia.setText("Reporte por Dia");
+        btn_reporteDia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/documents.png"))); // NOI18N
+        btn_reporteDia.setBorderPainted(false);
+        btn_reporteDia.setContentAreaFilled(false);
+        btn_reporteDia.setFocusPainted(false);
+        btn_reporteDia.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/documents PRESSED.png"))); // NOI18N
+        btn_reporteDia.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/documents PRESSED.png"))); // NOI18N
         btn_reporteDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_reporteDiaActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_reporteDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 67, -1));
 
-        btn_reporteEstado.setText("Reporte de Estado");
+        btn_reporteEstado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/speedometer.png"))); // NOI18N
+        btn_reporteEstado.setBorderPainted(false);
+        btn_reporteEstado.setContentAreaFilled(false);
+        btn_reporteEstado.setFocusPainted(false);
+        btn_reporteEstado.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/speedometer PRESSED.png"))); // NOI18N
+        btn_reporteEstado.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/speedometer PRESSED.png"))); // NOI18N
         btn_reporteEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_reporteEstadoActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_reporteEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 66, -1));
 
-        btn_reporteDevolucion.setText("Reporte de Devoluciones");
+        btn_reporteDevolucion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/return (1).png"))); // NOI18N
+        btn_reporteDevolucion.setBorderPainted(false);
+        btn_reporteDevolucion.setContentAreaFilled(false);
+        btn_reporteDevolucion.setFocusPainted(false);
+        btn_reporteDevolucion.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/return (1) PRESSED.png"))); // NOI18N
+        btn_reporteDevolucion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/return (1) PRESSED.png"))); // NOI18N
         btn_reporteDevolucion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_reporteDevolucionActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_reporteDevolucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 68, -1));
 
-        btn_reporteArticulo.setText("Reporte de articulos");
+        btn_reporteArticulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trolley.png"))); // NOI18N
+        btn_reporteArticulo.setBorderPainted(false);
+        btn_reporteArticulo.setContentAreaFilled(false);
+        btn_reporteArticulo.setFocusPainted(false);
+        btn_reporteArticulo.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trolley PRESSED.png"))); // NOI18N
+        btn_reporteArticulo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trolley PRESSED.png"))); // NOI18N
         btn_reporteArticulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_reporteArticuloActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_reporteArticulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 67, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_sesion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_reporteDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_reporteArticulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_reporteDia, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_reporteEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(43, 43, 43))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_sesion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_reporteDia, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_reporteEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_reporteDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_reporteArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+        dia.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        dia.setText("Reporte por Día");
+        getContentPane().add(dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
+
+        estado.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        estado.setText("Reporte de Estado");
+        getContentPane().add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
+
+        devoluciones.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        devoluciones.setText("Reporte de Devoluciones");
+        getContentPane().add(devoluciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
+
+        articulos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        articulos.setText("Reporte de Artículos");
+        getContentPane().add(articulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
+
+        fondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/White-christmas-light-background.jpg"))); // NOI18N
+        fondo.setText("jLabel1");
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -190,11 +210,16 @@ public class VentanaReporte extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel articulos;
     private javax.swing.JButton btn_reporteArticulo;
     private javax.swing.JButton btn_reporteDevolucion;
     private javax.swing.JButton btn_reporteDia;
     private javax.swing.JButton btn_reporteEstado;
     private javax.swing.JButton btn_sesion;
+    private javax.swing.JLabel devoluciones;
+    private javax.swing.JLabel dia;
+    private javax.swing.JLabel estado;
+    private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

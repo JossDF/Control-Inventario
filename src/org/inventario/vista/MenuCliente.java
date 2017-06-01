@@ -33,81 +33,92 @@ public class MenuCliente extends javax.swing.JFrame {
         btn_pedido = new javax.swing.JButton();
         btn_devolucion = new javax.swing.JButton();
         btn_historial = new javax.swing.JButton();
+        nuevoPedido = new javax.swing.JLabel();
+        nuevaDevolucion = new javax.swing.JLabel();
+        pedidos = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(500, 370));
         setUndecorated(true);
+        setResizable(false);
+        setSize(new java.awt.Dimension(500, 370));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel3.setText("Menu");
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jLabel3.setText("MENÚ CLIENTE");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
         btn_sesion.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        btn_sesion.setText("<-");
+        btn_sesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnRegresar.png"))); // NOI18N
+        btn_sesion.setBorderPainted(false);
+        btn_sesion.setContentAreaFilled(false);
+        btn_sesion.setFocusPainted(false);
+        btn_sesion.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnRegresarPressed.png"))); // NOI18N
+        btn_sesion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnRegresarPressed.png"))); // NOI18N
         btn_sesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sesionActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, 40, -1));
 
-        btn_pedido.setText("Nuevo pedido");
+        btn_pedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buy.png"))); // NOI18N
+        btn_pedido.setBorderPainted(false);
+        btn_pedido.setContentAreaFilled(false);
+        btn_pedido.setFocusPainted(false);
+        btn_pedido.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buy pressed.png"))); // NOI18N
+        btn_pedido.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buy pressed.png"))); // NOI18N
         btn_pedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_pedidoActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_pedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 66, 66));
 
-        btn_devolucion.setText("Nueva devolución");
+        btn_devolucion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/return.png"))); // NOI18N
+        btn_devolucion.setBorderPainted(false);
+        btn_devolucion.setContentAreaFilled(false);
+        btn_devolucion.setFocusPainted(false);
+        btn_devolucion.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/return pressed.png"))); // NOI18N
+        btn_devolucion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/return pressed.png"))); // NOI18N
         btn_devolucion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_devolucionActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_devolucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 66, 66));
 
-        btn_historial.setText("Pedidos");
+        btn_historial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pedidos.png"))); // NOI18N
+        btn_historial.setBorderPainted(false);
+        btn_historial.setContentAreaFilled(false);
+        btn_historial.setFocusPainted(false);
+        btn_historial.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pedidos pressed.png"))); // NOI18N
+        btn_historial.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pedidos pressed.png"))); // NOI18N
         btn_historial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_historialActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_historial, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 72, 66));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)))
-                .addGap(58, 58, 58))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(btn_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_devolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addComponent(btn_historial, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_sesion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_devolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addComponent(btn_historial, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
+        nuevoPedido.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        nuevoPedido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nuevoPedido.setText("Nuevo Pedido");
+        getContentPane().add(nuevoPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 100, -1));
+
+        nuevaDevolucion.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        nuevaDevolucion.setText("Nueva Devolución");
+        getContentPane().add(nuevaDevolucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
+
+        pedidos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pedidos.setText("Pedidos");
+        getContentPane().add(pedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, -1, -1));
+
+        fondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/White-christmas-light-background.jpg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -177,6 +188,10 @@ public class MenuCliente extends javax.swing.JFrame {
     private javax.swing.JButton btn_historial;
     private javax.swing.JButton btn_pedido;
     private javax.swing.JButton btn_sesion;
+    private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel nuevaDevolucion;
+    private javax.swing.JLabel nuevoPedido;
+    private javax.swing.JLabel pedidos;
     // End of variables declaration//GEN-END:variables
 }

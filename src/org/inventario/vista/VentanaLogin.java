@@ -41,22 +41,33 @@ public class VentanaLogin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btn_cerrar = new javax.swing.JButton();
         lbl_error = new javax.swing.JLabel();
+        entrar = new javax.swing.JLabel();
+        crear = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setResizable(false);
+        setSize(new java.awt.Dimension(500, 370));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel1.setText("Usuario");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 115, 66, -1));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel2.setText("Contraseña");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 167, -1, -1));
 
+        txt_usuario.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         txt_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_usuarioKeyTyped(evt);
             }
         });
+        getContentPane().add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 115, 136, -1));
 
+        txt_contrasenia.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         txt_contrasenia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_contraseniaActionPerformed(evt);
@@ -67,91 +78,70 @@ public class VentanaLogin extends javax.swing.JFrame {
                 txt_contraseniaKeyTyped(evt);
             }
         });
+        getContentPane().add(txt_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 167, 136, -1));
 
         btn_guardar.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        btn_guardar.setText("Entrar");
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/login (64px).png"))); // NOI18N
+        btn_guardar.setBorderPainted(false);
+        btn_guardar.setContentAreaFilled(false);
+        btn_guardar.setFocusPainted(false);
+        btn_guardar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/login 64px pressed.png"))); // NOI18N
+        btn_guardar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/login 64px pressed.png"))); // NOI18N
         btn_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_guardarActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 241, 64, -1));
 
         btn_registrar.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        btn_registrar.setText("Crear cuenta");
+        btn_registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/plus.png"))); // NOI18N
+        btn_registrar.setBorderPainted(false);
+        btn_registrar.setContentAreaFilled(false);
+        btn_registrar.setFocusPainted(false);
+        btn_registrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/plus pressed.png"))); // NOI18N
+        btn_registrar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/plus pressed.png"))); // NOI18N
         btn_registrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_registrarActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 241, 70, -1));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel3.setText("Login");
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jLabel3.setText("LOGIN");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 11, -1, -1));
 
-        btn_cerrar.setText("X");
+        btn_cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
+        btn_cerrar.setBorderPainted(false);
+        btn_cerrar.setContentAreaFilled(false);
+        btn_cerrar.setFocusPainted(false);
+        btn_cerrar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel pressed.png"))); // NOI18N
+        btn_cerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel pressed.png"))); // NOI18N
         btn_cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cerrarActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 34, -1));
 
         lbl_error.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         lbl_error.setText("Usuario y/o contraseña incorrecto");
         lbl_error.setVisible(false);
+        getContentPane().add(lbl_error, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 208, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_cerrar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(178, 178, 178)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_registrar, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                            .addComponent(btn_guardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(86, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_usuario)
-                            .addComponent(txt_contrasenia, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)))
-                    .addComponent(lbl_error))
-                .addGap(75, 75, 75))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_cerrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(lbl_error)
-                .addGap(29, 29, 29)
-                .addComponent(btn_guardar)
-                .addGap(18, 18, 18)
-                .addComponent(btn_registrar)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
+        entrar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        entrar.setText("Entrar");
+        getContentPane().add(entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 317, -1, -1));
+
+        crear.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        crear.setText("Crear Cuenta");
+        getContentPane().add(crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 317, -1, -1));
+
+        fondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/White-christmas-light-background.jpg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 370));
 
         getAccessibleContext().setAccessibleDescription("");
 
@@ -236,6 +226,9 @@ public class VentanaLogin extends javax.swing.JFrame {
     private javax.swing.JButton btn_cerrar;
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_registrar;
+    private javax.swing.JLabel crear;
+    private javax.swing.JLabel entrar;
+    private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
