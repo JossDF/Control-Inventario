@@ -67,9 +67,9 @@ public class ReporteEstado extends javax.swing.JFrame {
         getContentPane().add(btn_sesion4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 35, 35));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
-        jLabel3.setText("REPORTE DE PEDIDOS POR DÍA");
+        jLabel3.setText("REPORTE STATUS DE ENTREGA");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 11, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
 
         tbl_entrega.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         tbl_entrega.setModel(new javax.swing.table.DefaultTableModel(
