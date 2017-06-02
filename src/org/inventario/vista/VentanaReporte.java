@@ -156,13 +156,13 @@ public class VentanaReporte extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_reporteEstadoActionPerformed
 
     private void btn_reporteDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reporteDiaActionPerformed
-       ReporteDia reporte = new ReporteDia();
+       ReporteDevolucion reporte = new ReporteDevolucion();
        reporte.setVisible(true);
        dispose();
     }//GEN-LAST:event_btn_reporteDiaActionPerformed
 
     private void btn_reporteDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reporteDevolucionActionPerformed
-       ReporteDevolucion reporte = new ReporteDevolucion();
+       ReporteDia reporte = new ReporteDia();
        reporte.setVisible(true);
        dispose();
     }//GEN-LAST:event_btn_reporteDevolucionActionPerformed
