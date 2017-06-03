@@ -1,3 +1,4 @@
 1,admin,zona 7,26361425,51221-F,admin,admin,1
 2,Cliente,zona 21,25362258,5464545-f,cliente,cliente,0
 3,Anna Frank,UMG,53451855,8408569,anna,123,0
+4,Heber López,45ave. 16-37 zona 5 ,59125532,9418356-4,hlopez,Heberlopez95,0

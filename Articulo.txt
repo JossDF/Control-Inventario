@@ -1,3 +1,13 @@
 1,Compu,Para el hogar,1500.0,2500.0,Electronico,5
 2,Radio,Para el trabajo,300.0,500.0,Electronico,20
 3,test,test,25.0,25.0,tes,25
+4,Zapato de vestir Hombre,zapato para caballero,200.0,450.0,Zapateria,2
+5,Surface Pro 4,tablet Windows,4500.0,7000.0,Electronico,1
+6,Griffin,Cera liquida para zapato ,10.0,25.0,Zapateria,1
+7,Limpiador de baño,limpiador,30.0,50.0,Hogar,1
+8,Agujetas para zapato,Agujeta,5.0,10.0,Zapateria,2
+9,Limpia vidrios ,limpiador,25.0,90.0,Hogar,1
+10,Tablet 32GB,Tablet para oficina,500.0,1000.0,Electronico,1
+11,memoria USB flash 16GB,Memoria Kingston USB,30.0,100.0,Electronica,1
+12,Mouse Inalambrico,Mouse ,65.0,175.0,Electronico,1
+13,Mochila para Laptop,mochila,65.0,180.0,Accesorio,1
